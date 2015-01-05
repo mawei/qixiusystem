@@ -50,30 +50,30 @@
 	$lang['update_error']			= '保存记录的时候发生错误.';
 
 	/* Added in version 1.2.1 */
-	$lang['set_relation_title']		= 'Select {field_display_as}';
-	$lang['list_record']			= 'Record';
+	$lang['set_relation_title']		= '选择 {field_display_as}';
+	$lang['list_record']			= '记录';
 	$lang['form_inactive']			= 'inactive';
 	$lang['form_active']			= 'active';
 
 	/* Added in version 1.2.2 */
-	$lang['form_save_and_go_back']	= 'Save and go back to list';
-	$lang['form_update_and_go_back']= 'Update and go back to list';
+	$lang['form_save_and_go_back']	= '保存并返回列表';
+	$lang['form_update_and_go_back']= '更新并返回列表';
 
 	/* Upload functionality */
-	$lang['string_delete_file'] 	= "Deleting file";
-	$lang['string_progress'] 		= "Progress: ";
-	$lang['error_on_uploading'] 	= "An error has occurred on uploading.";
-	$lang['message_prompt_delete_file'] 	= "Are you sure that you want to delete this file?";
+	$lang['string_delete_file'] 	= "删除文件";
+	$lang['string_progress'] 		= "进度：";
+	$lang['error_on_uploading'] 	= "上传时出现错误";
+	$lang['message_prompt_delete_file'] 	= "确定删除此文件？";
 
-	$lang['error_max_number_of_files'] 	= "You can only upload one file each time.";
-	$lang['error_accept_file_types'] 	= "You are not allow to upload this kind of extension.";
-	$lang['error_max_file_size'] 		= "The uploaded file exceeds the {max_file_size} directive that was specified.";
-	$lang['error_min_file_size'] 		= "You cannot upload an empty file.";
+	$lang['error_max_number_of_files'] 	= "每次只能上传一个文件";
+	$lang['error_accept_file_types'] 	= "不支持此类后缀名的文件";
+	$lang['error_max_file_size'] 		= "该文件超过 {max_file_size} ，不能上传";
+	$lang['error_min_file_size'] 		= "不能上传空文件";
 
 	/* Added in version 1.3.1 */
-	$lang['list_export'] 	= "Export";
-	$lang['list_print'] 	= "Print";
-	$lang['minimize_maximize'] = 'Minimize/Maximize';
+	$lang['list_export'] 	= "导出";
+	$lang['list_print'] 	= "打印";
+	$lang['minimize_maximize'] = '最小/最大';
 
 	/* Added in version 1.4 */
-	$lang['list_view'] = 'View';
+	$lang['list_view'] = '查看';
