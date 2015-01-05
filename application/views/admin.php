@@ -32,7 +32,7 @@ foreach($css_files as $file): ?>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">泉林汽车</a>
+          <a class="navbar-brand" href="#">缘邦汽车</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
