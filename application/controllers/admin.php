@@ -25,21 +25,25 @@ class Admin extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('parser');
 		$this->load->library('grocery_CRUD');
+		$this->shopid = 1;
+	}
+	
+	public function ShopIdCallback($post_array)
+	{
+		$post_array['shopid'] = 1;
+		return $post_array;
 	}
 		
 	public function User()
 	{
+		
 		$crud = new grocery_CRUD();
-// 		$crud->set_theme('twitter-bootstrap');
 		$crud->set_table('user');	
 		$crud->columns('id','name','chepai','chexin');
-		//$crud->edit_fields('username','phone','secret','type');
-		$crud->where('type','客户');
+		$crud->edit_fields('name','chepai','chexin');
 		$crud->display_as('name','姓名');
 		$crud->display_as('phone','手机号');
 		$crud->display_as('chexin','车型');
-		$crud->display_as('password','密码');
-		$crud->display_as('type','类型');
 		$crud->display_as('chepai','车牌');
 		
 		$crud->set_subject('客户');
@@ -47,14 +51,47 @@ class Admin extends CI_Controller {
 		$this->load->view('admin.php',$output);
 	}
 	
+	public function Worker()
+	{
+		$crud = new grocery_CRUD();
+		// 		$crud->set_theme('twitter-bootstrap');
+		$crud->set_table('worker');
+		$crud->columns('id','name','phone');
+		$crud->edit_fields('name','phone');
+		$crud->display_as('name','姓名');
+		$crud->display_as('phone','手机号');
+		
+		$crud->set_subject('员工');
+		$output = $crud->render();
+		$this->load->view('admin.php',$output);
+	}
+	
+	public function Shop()
+	{
+		$crud = new grocery_CRUD();
+		// 		$crud->set_theme('twitter-bootstrap');
+		$crud->set_table('shop');
+		$crud->columns('id','shopname','username');
+		$crud->display_as('shopname','店家名称');
+		$crud->display_as('username','管理员用户名');
+		$crud->display_as('password','密码');
+		$crud->display_as('status','状态');
+		$crud->set_subject('店家');
+		$output = $crud->render();
+		$this->load->view('admin.php',$output);
+	}
+	
+		
 	public function Item()
 	{
 		$crud = new grocery_CRUD();
 		$crud->set_table('item');
 		$crud->columns('id','itemname','price');
+		$crud->edit_fields('itemname','price');
 		$crud->set_subject('服务项目');
 		$crud->display_as('itemname','项目名称');
 		$crud->display_as('price','价格');
+		
 		$output = $crud->render();
 		$this->load->view('admin.php',$output);
 	}
@@ -65,8 +102,6 @@ class Admin extends CI_Controller {
 		$crud = new grocery_CRUD();
 		//$crud->set_theme('twitter-bootstrap');
 		$crud->set_table('records');
-		//$crud->columns('id','userid','itemname','quantity','price','total','shop','date');
-		//$crud->edit_fields('partner_id','name','sex','age','photo','type');
 		$crud->set_subject('服务记录');
 		$crud->display_as('userid','车牌');
 		$crud->display_as('itemid','服务项目');
@@ -78,7 +113,7 @@ class Admin extends CI_Controller {
 		$crud->display_as('workerid','操作人员');
 		$crud->set_relation('userid','user','chepai');
 		$crud->set_relation('itemid','item','itemname');
-		$crud->set_relation('workerid','user','name',array('type'=>'worker'));
+		$crud->set_relation('workerid','worker','name');
 		
 		$output = $crud->render();
 		$this->load->view('admin.php',$output);

@@ -59,6 +59,7 @@ foreach($css_files as $file): ?>
                 <li><a href='<?php echo site_url('admin/user')?>'>客户管理</a></li>
 				<li><a href='<?php echo site_url('admin/item')?>'>项目管理</a></li>
 				<li><a href='<?php echo site_url('admin/record')?>'>服务记录管理</a></li>
+				<li><a href='<?php echo site_url('admin/worker')?>'>员工管理</a></li>
             </ul>
             <ul class="nav nav-sidebar">
             </ul>
