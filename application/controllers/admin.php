@@ -36,15 +36,20 @@ class Admin extends CI_Controller {
 		
 	public function User()
 	{
-		
 		$crud = new grocery_CRUD();
 		$crud->set_table('user');	
-		$crud->columns('id','name','chepai','chexin');
-		$crud->edit_fields('name','chepai','chexin');
+		$crud->columns('id','name','chepai','chexin','baoxian_duedate','nianjian_duedate');
 		$crud->display_as('name','姓名');
 		$crud->display_as('phone','手机号');
 		$crud->display_as('chexin','车型');
 		$crud->display_as('chepai','车牌');
+		$crud->display_as('xinshi_image','行驶证照片');
+		$crud->display_as('id_image','身份证照片');
+		$crud->display_as('baoxian_duedate','保险到期日');
+		$crud->display_as('nianjian_duedate','年检到期日');
+		$crud->required_fields('chepai');
+		$crud->set_field_upload('xinshi_image','assets/uploads/files');
+		$crud->set_field_upload('id_image','assets/uploads/files');
 		
 		$crud->set_subject('客户');
 		$output = $crud->render();	
@@ -54,7 +59,6 @@ class Admin extends CI_Controller {
 	public function Worker()
 	{
 		$crud = new grocery_CRUD();
-		// 		$crud->set_theme('twitter-bootstrap');
 		$crud->set_table('worker');
 		$crud->columns('id','name','phone');
 		$crud->edit_fields('name','phone');
@@ -65,6 +69,27 @@ class Admin extends CI_Controller {
 		$output = $crud->render();
 		$this->load->view('admin.php',$output);
 	}
+	
+	public function Accident()
+	{
+		$crud = new grocery_CRUD();
+		$crud->set_table('accident_record');
+		$crud->columns('id','userid','date','address');
+		$crud->display_as('userid','车牌');
+		$crud->display_as('date','时间');
+		$crud->display_as('address','地址');
+		$crud->display_as('image1','照片1');
+		$crud->display_as('image2','照片2');
+		
+		$crud->set_field_upload('image1','assets/uploads/files');
+		$crud->set_field_upload('image2','assets/uploads/files');
+		
+		$crud->set_relation('userid', 'user', 'chepai');
+		$crud->set_subject('事故登记');
+		$output = $crud->render();
+		$this->load->view('admin.php',$output);
+	}
+	
 	
 	public function Shop()
 	{
@@ -96,12 +121,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin.php',$output);
 	}
 	
+	public function toUserUrl($primary_key , $row)
+	{
+		return site_url('admin/user?id='.$row->userid);
+	}
 	
 	public function record()
 	{
 		$crud = new grocery_CRUD();
 		//$crud->set_theme('twitter-bootstrap');
-		$crud->set_table('records');
+		$crud->set_table('repair_record');
 		$crud->set_subject('服务记录');
 		$crud->display_as('userid','车牌');
 		$crud->display_as('itemid','服务项目');
@@ -118,6 +147,8 @@ class Admin extends CI_Controller {
 		$output = $crud->render();
 		$this->load->view('admin.php',$output);
 	}
+	
+	
 	
 // 	public function insurance()
 // 	{

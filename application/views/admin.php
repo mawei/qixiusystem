@@ -32,7 +32,7 @@ foreach($css_files as $file): ?>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">缘邦汽车</a>
+          <a class="navbar-brand" href="#">优迈汽修</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -60,6 +60,7 @@ foreach($css_files as $file): ?>
 				<li><a href='<?php echo site_url('admin/item')?>'>项目管理</a></li>
 				<li><a href='<?php echo site_url('admin/record')?>'>服务记录管理</a></li>
 				<li><a href='<?php echo site_url('admin/worker')?>'>员工管理</a></li>
+				<li><a href='<?php echo site_url('admin/accident')?>'>事故登记</a></li>
             </ul>
             <ul class="nav nav-sidebar">
             </ul>
