@@ -13,14 +13,6 @@
 		<![endif]-->
 		<link href="<?php echo base_url("assets/static/css/styles.css");?>" rel="stylesheet">
 		
-		<?php 
-foreach($css_files as $file): ?>
-	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-<?php endforeach; ?>
-<?php foreach($js_files as $file): ?>
-	<script src="<?php echo $file; ?>"></script>
-<?php endforeach; ?>
-		
 	</head>
 	<body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -78,7 +70,7 @@ foreach($css_files as $file): ?>
           </p>
           
 		  <h1 class="page-header">
-            Dashboard
+            今日提醒
           </h1>
 
           <div class="table-responsive">

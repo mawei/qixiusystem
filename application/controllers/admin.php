@@ -148,6 +148,26 @@ class Admin extends CI_Controller {
 		$this->load->view('admin.php',$output);
 	}
 	
+	public function remind()
+	{
+		$query = $this->db->query("SELECT * FROM `user` where DATEDIFF(baoxian_duedate,CURDATE()) < 30");
+		$baoxians = $query->result_array();
+		$query = $this->db->query("SELECT * FROM `user` where DATEDIFF(nianjian_duedate,CURDATE()) < 30");
+		$nianjians = $query->result_array();
+		$output = "<ul>";
+		foreach($baoxians as $v)
+		{
+			$output .= "<li><a href=\"user/read/{$v['id']}\">{$v['chepai']}</a> 的保险将要过期，过期日期为{$v['baoxian_duedate']}</li>";  
+		}foreach($nianjians as $v)
+		{
+			$output .= "<li><a href=\"user/read/{$v['id']}\">{$v['chepai']}</a> 的年检将要过期，过期日期为{$v['nianjian_duedate']}</li>";  
+		}
+		$output .= "</ul>";
+		$data['output'] = $output;
+		$this->parser->parse('remind',$data);
+	}
+	
+	
 	
 	
 // 	public function insurance()
